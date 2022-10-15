@@ -1,0 +1,4 @@
+content/
+data/
+.env
+databases-old.sql

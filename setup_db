@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Get environment variables
+source ./.env
+
+# Load the database dump as root
+docker exec -it dockertest_db_1 mysql -uroot -p$MYSQL_ROOT_PASSWORD \
+    -e "source /content/hs_database.sql"
+
+# Disable root access from the other containers; minor hardening
+docker exec -it dockertest_db_1 mysql -uroot -p$MYSQL_ROOT_PASSWORD \
+    -e "delete from mysql.user where user='root' and host = '%'"
