@@ -1,4 +1,4 @@
 #!/bin/bash
 mkdir -p data # Create directoy for mysql database mirroring
 
-sudo docker-compose up -d # Launch the services in the background
+sudo docker compose up -d # Launch the services in the background
